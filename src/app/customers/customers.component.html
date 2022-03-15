@@ -1,0 +1,43 @@
+<div class="container" *ngIf="current">
+  <div class="box">
+    <div class="clock">
+      {{ today | date: "H:mm:ss a " }}
+    </div>
+    <div class="location">
+      <span
+        ><img
+          src="http://openweathermap.org/img/wn/{{
+            current.weather[0].icon
+          }}@4x.png"
+          alt=""
+      /></span>
+      <h1>{{ current.name }}, {{ current.sys.country }}</h1>
+      <div class="degree">
+        <h2>
+          {{ current.main.temp - 273.15 | number: "1.0-0" }}
+          <span>&#8451;</span>
+        </h2>
+        <span>|</span>
+        <h2>{{ current.weather[0].description }}</h2>
+      </div>
+    </div>
+    <div class="time">
+      <div class="date">
+        <h5>{{ today | date: "EEEE" }}</h5>
+        <p>{{ today | date: "d MMM, y" }}</p>
+      </div>
+      <div class="details">
+        <ul>
+          <li>
+            <i class="bi bi-cloud-haze"></i>
+            {{ current.main.humidity }} &#37;
+          </li>
+          <li>
+            <i class="bi bi-sunrise"></i>{{ sunRiseDate | date: "h:mm:ss a" }}
+          </li>
+          <li><i class="bi bi-wind"></i>{{ current.wind.speed }} KM/H</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</div>

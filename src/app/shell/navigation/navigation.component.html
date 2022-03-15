@@ -1,0 +1,14 @@
+<div class="container">
+  <button
+    [routerLink]="['/']"
+    routerLinkActive="active"
+    [routerLinkActiveOptions]="{ exact: true }"
+    class="nav-link"
+  >
+    <i class="bi bi-gear"></i>today
+  </button>
+  <button [routerLink]="['forecast']" routerLinkActive="active"
+  class="nav-link">
+    <i class="bi bi-calendar"></i>forecast
+  </button>
+</div>

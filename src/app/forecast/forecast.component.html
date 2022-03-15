@@ -1,0 +1,30 @@
+<div class="container">
+  <nav>
+    <ul>
+      <li *ngFor="let item of weatherNow; let i = index">
+        <button>{{ item.dt_txt | date: "EEE" }}</button>
+      </li>
+    </ul>
+  </nav>
+
+  <div class="weekday">
+    {{ today | date: "EEEE" }}
+  </div>
+
+  <div class="wrapper" *ngFor="let item of timeline">
+    <div class="icon">
+      <span
+        ><img src="http://openweathermap.org/img/wn/{{ item.icon }}.png" alt=""
+      /></span>
+    </div>
+    <div class="data">
+      <div class="date">
+        <h5>{{ item.time | date:"HH.mm"}}</h5>
+        <p>{{ item.description }}</p>
+      </div>
+      <div class="degree">
+        <p>{{(item.temp - 32) / 1.8 | number: "1.0-0"}} <span>&#8451;</span></p>
+      </div>
+    </div>
+  </div>
+</div>
